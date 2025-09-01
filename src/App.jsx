@@ -4,10 +4,10 @@ import {
     createRoutesFromElements,
     Route,
 } from "react-router-dom";
-import Start from "./components/start/Start";
+import Root from "./basics/Root";
 
 const router = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Start />} />)
+    createRoutesFromElements(<Route path="/" element={<Root />} />)
 );
 
 export default function App() {

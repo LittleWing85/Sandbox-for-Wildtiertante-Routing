@@ -1,13 +1,30 @@
 :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: sans-serif;
     line-height: 1.5;
-}
-
-body {
-    margin: 0;
 }
 
 h1 {
     font-size: 3.2em;
     line-height: 1.1;
+}
+
+/* overall layout */
+.mainContainer {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: 6.5em 1fr 6.5em;
+}
+
+/* for testing purposes only*/
+.navbar {
+    background-color: aqua;
+}
+.content {
+    background-color: blueviolet;
+}
+.footer {
+    background-color: deeppink;
 }
