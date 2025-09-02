@@ -4,16 +4,24 @@ export default function NavigationMain() {
     return (
         <div className="navbar">
             <div>
-                <NavLink to="/">Info</NavLink>
+                <NavLink className="navlink" to="/">
+                    Info
+                </NavLink>
             </div>
             <div>
-                <NavLink to="/tool">Tool</NavLink>
+                <NavLink className="navlink" to="/tool">
+                    Tool
+                </NavLink>
             </div>
             <div>
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink className="navlink" to="/contact">
+                    Contact
+                </NavLink>
             </div>
             <div>
-                <NavLink to="/about">About</NavLink>
+                <NavLink className="navlink" to="/about">
+                    About
+                </NavLink>
             </div>
         </div>
     );
