@@ -3,6 +3,7 @@ import {
     RouterProvider,
     createRoutesFromElements,
     Route,
+    Navigate,
 } from "react-router-dom";
 import Root from "./basics/Root";
 import Info from "./components/info/Info";
@@ -17,17 +18,17 @@ import About from "./components/about/About";
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />}>
-            <Route index element={<Info />} />
-            <Route path="/info" element={<Info />}>
+            <Route index element={<Navigate to="Info" replace />} />
+            <Route path="info" element={<Info />}>
                 <Route index element={<InfoBunnies />} />
                 <Route path="bunnies" element={<InfoBunnies />} />
                 <Route path="squirrels" element={<InfoSquirrels />} />
                 <Route path="equipment" element={<InfoEquipment />} />
                 <Route path="milk" element={<InfoMilk />} />
             </Route>
-            <Route path="/tool" element={<Tool />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
+            <Route path="tool" element={<Tool />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="about" element={<About />} />
         </Route>
     )
 );
