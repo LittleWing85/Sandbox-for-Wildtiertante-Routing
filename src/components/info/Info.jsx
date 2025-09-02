@@ -1,7 +1,11 @@
+import { Outlet } from "react-router-dom";
+import NavbarInfo from "./NavbarInfo";
+
 export default function Info() {
     return (
-        <div>
-            <p>I'm the page "Info"</p>
-        </div>
+        <>
+            <NavbarInfo />
+            <Outlet />
+        </>
     );
 }
