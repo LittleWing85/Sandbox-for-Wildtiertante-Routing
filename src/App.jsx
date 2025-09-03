@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import {
     createBrowserRouter,
     RouterProvider,
@@ -8,9 +9,9 @@ import {
 import Root from "./basics/Root";
 import Info from "./components/info/Info";
 import InfoBunnies from "./components/info/InfoBunnies";
-import InfoSquirrels from "./components/info/InfoSquirrels";
-import InfoEquipment from "./components/info/InfoEquipment";
-import InfoMilk from "./components/info/InfoMilk";
+const InfoSquirrels = lazy(() => import("./components/info/InfoSquirrels"));
+const InfoEquipment = lazy(() => import("./components/info/InfoEquipment"));
+const InfoMilk = lazy(() => import("./components/info/InfoMilk"));
 import Tool from "./components/tool/Tool";
 import Contact from "./components/contact/Contact";
 import About from "./components/about/About";
@@ -22,9 +23,30 @@ const router = createBrowserRouter(
             <Route path="info" element={<Info />}>
                 <Route index element={<InfoBunnies />} />
                 <Route path="bunnies" element={<InfoBunnies />} />
-                <Route path="squirrels" element={<InfoSquirrels />} />
-                <Route path="equipment" element={<InfoEquipment />} />
-                <Route path="milk" element={<InfoMilk />} />
+                <Route
+                    path="squirrels"
+                    element={
+                        <Suspense fallback={<div>Loading</div>}>
+                            <InfoSquirrels />
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="equipment"
+                    element={
+                        <Suspense fallback={<div>Loading</div>}>
+                            <InfoEquipment />
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="milk"
+                    element={
+                        <Suspense fallback={<div>Loading</div>}>
+                            <InfoMilk />
+                        </Suspense>
+                    }
+                />
             </Route>
             <Route path="tool" element={<Tool />} />
             <Route path="contact" element={<Contact />} />
