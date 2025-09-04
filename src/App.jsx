@@ -7,6 +7,7 @@ import {
     Navigate,
 } from "react-router-dom";
 import Root from "./basics/Root";
+import LayoutRoute from "./LayoutRoute";
 import Info from "./components/info/Info";
 import InfoBunnies from "./components/info/InfoBunnies";
 const InfoSquirrels = lazy(() => import("./components/info/InfoSquirrels"));
@@ -23,22 +24,10 @@ const router = createBrowserRouter(
             <Route path="info" element={<Info />}>
                 <Route index element={<InfoBunnies />} />
                 <Route path="bunnies" element={<InfoBunnies />} />
-                <Route
-                    path="squirrels"
-                    element={
-                        <Suspense fallback={<div>Loading</div>}>
-                            <InfoSquirrels />
-                        </Suspense>
-                    }
-                />
-                <Route
-                    path="equipment"
-                    element={
-                        <Suspense fallback={<div>Loading</div>}>
-                            <InfoEquipment />
-                        </Suspense>
-                    }
-                />
+                <Route element={<LayoutRoute />}>
+                    <Route path="squirrels" element={<InfoSquirrels />} />
+                    <Route path="equipment" element={<InfoEquipment />} />
+                </Route>
                 <Route
                     path="milk"
                     element={
