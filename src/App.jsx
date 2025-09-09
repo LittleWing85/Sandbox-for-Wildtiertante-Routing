@@ -27,15 +27,8 @@ const router = createBrowserRouter(
                 <Route element={<LayoutRoute />}>
                     <Route path="squirrels" element={<InfoSquirrels />} />
                     <Route path="equipment" element={<InfoEquipment />} />
+                    <Route path="milk" element={<InfoMilk />} />
                 </Route>
-                <Route
-                    path="milk"
-                    element={
-                        <Suspense fallback={<div>Loading</div>}>
-                            <InfoMilk />
-                        </Suspense>
-                    }
-                />
             </Route>
             <Route path="tool" element={<Tool />} />
             <Route path="contact" element={<Contact />} />
